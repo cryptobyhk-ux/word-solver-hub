@@ -45,20 +45,20 @@ function initSudoku(rootId,puzzleIndex){
   const data=SUDOKU_PUZZLES[puzzleIndex%SUDOKU_PUZZLES.length];
   const puzzle=data.puzzle.split(''),solution=data.solution.split('');
   let notes=false;
-  root.innerHTML='<p><button class="btn2" id="sd-notes">Notes: Off</button> <button class="btn2" id="sd-erase">Erase</button> <button class="btn2" id="sd-check">Check</button> <button class="btn2" id="sd-hint">Hint</button></p><table class="sudoku"><tbody>'+Array.from({length:9},(_,r)=>'<tr>'+Array.from({length:9},(_,c)=>{const i=r*9+c;const v=puzzle[i];return '<td><input data-i="'+i+'" maxlength="1" '+(v!=='.'?'value="'+v+'" disabled style="background:#172C26;color:#00D68F"':'')+'></td>';}).join('')+'</tr>').join('')+'</tbody></table><p id="sd-msg" class="small"></p>';
+  root.innerHTML='<p><button class="btn2" id="sd-notes">Notes: Off</button> <button class="btn2" id="sd-erase">Erase</button> <button class="btn2" id="sd-check">Check</button> <button class="btn2" id="sd-hint">Hint</button></p><table class="sudoku"><tbody>'+Array.from({length:9},(_,r)=>'<tr>'+Array.from({length:9},(_,c)=>{const i=r*9+c;const v=puzzle[i];return '<td><input data-i="'+i+'" maxlength="1" '+(v!=='.'?'value="'+v+'" disabled style="background:#F5F3FF;color:#7C3AED"':'')+'></td>';}).join('')+'</tr>').join('')+'</tbody></table><p id="sd-msg" class="small"></p>';
   const msg=root.querySelector('#sd-msg');let selected=null;
   root.querySelectorAll('input').forEach(inp=>{inp.addEventListener('focus',()=>selected=inp);});
   root.querySelector('#sd-notes').onclick=e=>{notes=!notes;e.target.textContent='Notes: '+(notes?'On':'Off');};
   root.querySelector('#sd-erase').onclick=()=>{if(selected&&!selected.disabled)selected.value='';};
   root.querySelector('#sd-check').onclick=()=>{
     let wrong=0,filled=0;
-    root.querySelectorAll('input').forEach(inp=>{const i=+inp.dataset.i;if(inp.value){filled++;if(inp.value!==solution[i]){wrong++;inp.style.color='#f87171';}else inp.style.color='#00D68F';}});
+    root.querySelectorAll('input').forEach(inp=>{const i=+inp.dataset.i;if(inp.value){filled++;if(inp.value!==solution[i]){wrong++;inp.style.color='#f87171';}else inp.style.color='#16A34A';}});
     msg.textContent=wrong?wrong+' cell(s) are wrong. Keep going!':(filled===81?'Solved! Great work.':'All filled cells look correct so far.');
     if(filled===81&&!wrong)saveScore('sudoku',100);
   };
   root.querySelector('#sd-hint').onclick=()=>{
     const empties=[...root.querySelectorAll('input')].filter(i=>!i.value&&!i.disabled);
-    if(empties.length){const inp=empties[0];inp.value=solution[+inp.dataset.i];inp.style.color='#00D68F';msg.textContent='Hint filled one cell.';}
+    if(empties.length){const inp=empties[0];inp.value=solution[+inp.dataset.i];inp.style.color='#16A34A';msg.textContent='Hint filled one cell.';}
   };
 }
 // 2048
@@ -77,7 +77,7 @@ function init2048(rootId){
     if(JSON.stringify(old)!==JSON.stringify(grid)){spawn();render();if(!grid.includes(0)){over=true;document.getElementById('g2048-msg').textContent='Game over. Final score: '+score;saveScore('2048',score);}}
   }
   function render(){
-    document.getElementById('g2048-board').innerHTML=grid.map(v=>'<div class="cell" style="font-size:18px;background:'+(v? '#172C26':'#0f1a17')+';color:'+(v>=64?'#00D68F':'#fff')+'">'+(v||'')+'</div>').join('');
+    document.getElementById('g2048-board').innerHTML=grid.map(v=>'<div class="cell" style="font-size:18px;background:'+(v? '#EDE9FE':'#F8F9FD')+';color:'+(v>=64?'#7C3AED':'#0F172A')+'">'+(v||'')+'</div>').join('');
     document.getElementById('g2048-score').textContent='Score: '+score;
   }
   root.innerHTML='<p id="g2048-score">Score: 0</p><div class="wordgrid" id="g2048-board" style="grid-template-columns:repeat(4,1fr)"></div><p><button class="btn2" data-d="up">↑</button> <button class="btn2" data-d="left">←</button> <button class="btn2" data-d="down">↓</button> <button class="btn2" data-d="right">→</button> <button class="btn" id="g2048-new">New Game</button></p><p id="g2048-msg" class="small">Use arrow keys or the buttons. Combine equal tiles to reach 2048.</p>';
@@ -113,7 +113,7 @@ function initWordSearch(rootId,words){
       return '<div class="cell '+(isSel?'sel':'')+'" data-r="'+r+'" data-c="'+c+'">'+ch+'</div>';
     }).join('')).join('');
     root.querySelectorAll('.cell').forEach(cell=>cell.onclick=()=>toggle(cell));
-    root.querySelector('#ws-list').innerHTML=placed.map(w=>'<span class="pill" style="'+(found.has(w)?'text-decoration:line-through;color:#00D68F':'')+'">'+w+'</span>').join('');
+    root.querySelector('#ws-list').innerHTML=placed.map(w=>'<span class="pill" style="'+(found.has(w)?'text-decoration:line-through;color:#16A34A':'')+'">'+w+'</span>').join('');
   }
   function toggle(cell){
     const key=cell.dataset.r+'-'+cell.dataset.c;
@@ -137,7 +137,7 @@ function initMinesweeper(rootId){
   let revealed=new Set(),over=false;
   function render(){
     root.querySelector('#ms-grid').innerHTML=Array.from({length:n*n},(_,i)=>{const r=Math.floor(i/n),c=i%n;const rev=revealed.has(i);const isMine=mineSet.has(i);
-      return '<div class="cell" style="background:'+(rev?(isMine?'#7f1d1d':'#172C26'):'#0f1a17')+'" data-i="'+i+'">'+(rev?(isMine?'💣':(count(r,c)||'')):'')+'</div>';}).join('');
+      return '<div class="cell" style="background:'+(rev?(isMine?'#7f1d1d':'#EDE9FE'):'#FFFFFF')+'" data-i="'+i+'">'+(rev?(isMine?'💣':(count(r,c)||'')):'')+'</div>';}).join('');
     root.querySelectorAll('.cell').forEach(cell=>cell.onclick=()=>{
       if(over)return;const i=+cell.dataset.i;if(mineSet.has(i)){revealed=new Set([...Array(81).keys()]);over=true;root.querySelector('#ms-msg').textContent='You hit a mine. Try again!';}
       else{revealed.add(i);if(revealed.size===81-mines){over=true;root.querySelector('#ms-msg').textContent='You cleared the board!';saveScore('minesweeper',100);}}
@@ -151,11 +151,11 @@ function initMinesweeper(rootId){
 // Snake on canvas
 function initSnake(rootId){
   const root=document.getElementById(rootId);if(!root)return;
-  root.innerHTML='<canvas id="snake-canvas" width="400" height="400" style="background:#0f1a17;border:1px solid #2a423a;border-radius:12px;max-width:100%"></canvas><p><button class="btn" id="snake-start">Start</button> <span id="snake-score" class="small">Score: 0</span></p><p class="small">Use arrow keys. Eat the green dots and do not hit yourself or the wall.</p>';
+  root.innerHTML='<canvas id="snake-canvas" width="400" height="400" style="background:#F8F9FD;border:1px solid #E2E8F0;border-radius:12px;max-width:100%"></canvas><p><button class="btn" id="snake-start">Start</button> <span id="snake-score" class="small">Score: 0</span></p><p class="small">Use arrow keys. Eat the green dots and do not hit yourself or the wall.</p>';
   const cv=root.querySelector('#snake-canvas'),ctx=cv.getContext('2d');let snake,dir,food,score,timer;
   function draw(){
-    ctx.clearRect(0,0,400,400);ctx.fillStyle='#00D68F';ctx.fillRect(food.x*20,food.y*20,20,20);
-    ctx.fillStyle='#fff';snake.forEach((s,i)=>{ctx.fillStyle=i===0?'#00D68F':'#fff';ctx.fillRect(s.x*20,s.y*20,19,19);});
+    ctx.clearRect(0,0,400,400);ctx.fillStyle='#16A34A';ctx.fillRect(food.x*20,food.y*20,20,20);
+    ctx.fillStyle='#fff';snake.forEach((s,i)=>{ctx.fillStyle=i===0?'#16A34A':'#7C3AED';ctx.fillRect(s.x*20,s.y*20,19,19);});
   }
   function step(){
     const head={x:snake[0].x+dir.x,y:snake[0].y+dir.y};
@@ -173,7 +173,7 @@ function initHive(rootId){
   const sets=[['a','e','t','r','s','n','c'],['o','i','l','m','p','e','s'],['a','r','d','g','n','i','e']];
   const letters=sets[Math.floor(makeRng(hashSeed(easternDateString()+'|hive'))()*sets.length)];
   const center=letters[0];let found=new Set(),score=0;
-  root.innerHTML='<p>Letters: '+letters.map((l,i)=>'<span class="pill" style="'+(i===0?'color:#00D68F;border-color:#00D68F':'')+'">'+l+'</span>').join('')+' (center letter <strong>'+center+'</strong> must be used)</p><input id="hive-in" placeholder="Type a word using these letters"><button class="btn" id="hive-go" style="margin-top:8px">Check Word</button><p id="hive-msg" class="small"></p><p id="hive-found"></p>';
+  root.innerHTML='<p>Letters: '+letters.map((l,i)=>'<span class="pill" style="'+(i===0?'color:#16A34A;border-color:#16A34A':'')+'">'+l+'</span>').join('')+' (center letter <strong>'+center+'</strong> must be used)</p><input id="hive-in" placeholder="Type a word using these letters"><button class="btn" id="hive-go" style="margin-top:8px">Check Word</button><p id="hive-msg" class="small"></p><p id="hive-found"></p>';
   root.querySelector('#hive-go').onclick=()=>{
     const w=root.querySelector('#hive-in').value.toLowerCase().trim();const msg=root.querySelector('#hive-msg');
     if(w.length<4){msg.textContent='Words must be at least 4 letters.';return;}
