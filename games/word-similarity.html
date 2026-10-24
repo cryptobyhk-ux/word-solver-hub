@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Word Similarity Game Daily Free | WordSolver Hub</title><meta name="description" content="Guess the secret word and get closeness hints. Free similarity game, no sign-in.">
+<link rel="canonical" href="https://word-solver-hub.vercel.app/games/word-similarity.html">
+<meta property="og:title" content="Word Similarity Game Daily Free | WordSolver Hub"><meta property="og:description" content="Guess the secret word and get closeness hints. Free similarity game, no sign-in."><meta property="og:type" content="website"><meta property="og:url" content="https://word-solver-hub.vercel.app/games/word-similarity.html"><meta property="og:site_name" content="WordSolver Hub">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Word Similarity Game Daily Free | WordSolver Hub"><meta name="twitter:description" content="Guess the secret word and get closeness hints. Free similarity game, no sign-in.">
+<link rel="stylesheet" href="../assets/style.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this game free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, free with no sign-in and no download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the daily puzzle the same for everyone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for daily games: the puzzle is picked from the US Eastern calendar date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All games are built mobile-first and work with touch or a keyboard."
+      }
+    }
+  ]
+}</script><script>window.addEventListener('DOMContentLoaded',()=>{const groups={animals:['tiger','horse','eagle','shark','mouse','snake'],foods:['apple','bread','cheese','pasta','mango','lemon'],colors:['green','black','white','brown','purple','yellow'],jobs:['doctor','teacher','baker','farmer','lawyer','singer']};const keys=Object.keys(groups);const gk=keys[Math.floor(makeRng(hashSeed(easternDateString()+'|sim'))()*keys.length)];const secret=groups[gk][Math.floor(makeRng(hashSeed(easternDateString()+'|sim2'))()*groups[gk].length)];document.getElementById('ws-go').onclick=()=>{const v=document.getElementById('ws-in').value.toLowerCase().trim();const msg=document.getElementById('ws-msg');if(v===secret){msg.textContent='You found the secret word: '+secret+'!';saveScore('similarity',100);}else if(groups[gk].includes(v))msg.textContent='Very close! Same group as the secret word.';else if(WORDS.all.includes(v))msg.textContent='Far away. Try a different kind of word.';else msg.textContent='That word is not in our list.';};});</script></head>
+<body><header><nav class="nav"><a class="logo" href="../index.html">Word<span>Solver</span> Hub</a>
+<a class="nlink" href="../word-games.html">Word Games</a><a class="nlink" href="../logic-puzzles.html">Logic Puzzles</a><a class="nlink" href="../number-games.html">Number Games</a><a class="nlink" href="../solvers.html">Solvers</a><a class="nlink" href="../lists/word-lists.html">Word Lists</a><a class="nlink" href="../guides.html">Guides</a><a class="nlink" href="../blog/index.html">Blog</a><a class="nlink" href="../leaderboards.html">Leaderboards</a><a class="nlink" href="../unblocked-games.html">Unblocked</a></nav></header><main><h1>Word Similarity Game Daily Free</h1><p>Guess a common word. You will be told whether it is in the same group as the secret word, a nearby group, or far away.</p><div class='toolbox'><input id="ws-in" placeholder="Guess a word"><button class="btn" id="ws-go" style="margin-top:8px">Guess</button><p id="ws-msg" class="small"></p></div><section><h2>How to Play</h2><p>Play right in your browser. No sign-in or download is needed. Your best scores are saved only on your own device, on the <a href='../leaderboards.html'>Leaderboards</a> page.</p></section><section><h2>Related Games</h2><p><a href="five-letter-game.html">5-Letter Game</a> &bull; <a href="category-sort.html">Category Sort</a> &bull; <a href="word-search.html">Word Search</a> &bull; <a href="../logic/sudoku.html">Sudoku</a></p></section><section><h2>Frequently Asked Questions</h2><h3>Is this game free?</h3><p>Yes, free with no sign-in and no download.</p><h3>Is the daily puzzle the same for everyone?</h3><p>Yes for daily games: the puzzle is picked from the US Eastern calendar date.</p><h3>Can I play on my phone?</h3><p>Yes. All games are built mobile-first and work with touch or a keyboard.</p></section></main><footer><div class="foot"><div><strong style="color:#fff">WordSolver Hub</strong><p>Free word solvers and daily word, logic, and number games for players in the United States. No sign-in, no download, no paywall.</p></div>
+<div><strong style="color:#fff">Games</strong><a href="../word-games.html">All Word Games</a><a href="../games/five-letter-game.html">5-Letter Word Game</a><a href="../games/category-sort.html">Category Sort Game</a><a href="../games/word-search.html">Word Search</a><a href="../logic/sudoku.html">Sudoku</a><a href="../logic/2048.html">2048</a></div>
+<div><strong style="color:#fff">Solvers</strong><a href="../solvers.html">All Solvers</a><a href="../solvers/word-finder.html">Word Finder</a><a href="../solvers/anagram-solver.html">Anagram Solver</a><a href="../solvers/scrabble-solver.html">Scrabble Solver</a><a href="../solvers/crossword-solver.html">Crossword Solver</a><a href="../solvers/word-search-maker.html">Word Search Maker</a></div>
+<div><strong style="color:#fff">Site</strong><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../lists/word-lists.html">Word Lists</a><a href="../leaderboards.html">Leaderboards</a></div></div>
+<div style="text-align:center;padding:0 16px 20px;color:#A8B0B5;font-size:13px">WordSolver Hub is an original site. Game names on this site are generic descriptions, not trademarks of any publisher.</div></footer>
+<script src="../assets/words.js"></script><script src="../assets/tools.js"></script><script src="../assets/games.js"></script></body></html>

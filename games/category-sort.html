@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Category Sort Game Daily Free | WordSolver Hub</title><meta name="description" content="Sort 16 words into 4 categories. A new daily set for US players, free with no sign-in.">
+<link rel="canonical" href="https://word-solver-hub.vercel.app/games/category-sort.html">
+<meta property="og:title" content="Category Sort Game Daily Free | WordSolver Hub"><meta property="og:description" content="Sort 16 words into 4 categories. A new daily set for US players, free with no sign-in."><meta property="og:type" content="website"><meta property="og:url" content="https://word-solver-hub.vercel.app/games/category-sort.html"><meta property="og:site_name" content="WordSolver Hub">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Category Sort Game Daily Free | WordSolver Hub"><meta name="twitter:description" content="Sort 16 words into 4 categories. A new daily set for US players, free with no sign-in.">
+<link rel="stylesheet" href="../assets/style.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is this game free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, free with no sign-in and no download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the daily puzzle the same for everyone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes for daily games: the puzzle is picked from the US Eastern calendar date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play on my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All games are built mobile-first and work with touch or a keyboard."
+      }
+    }
+  ]
+}</script><script>window.addEventListener('DOMContentLoaded',()=>{const set=dailyCategorySet();let words=[];set.cats.forEach(c=>c.words.forEach(w=>words.push(w)));words=shuffled(words,easternDateString()+'|cat');let sel=new Set(),foundCats=[],mistakes=0;
+ function catRender(){document.getElementById('cat-words').innerHTML=words.map(w=>'<button class="pill" data-w="'+w+'" style="font-size:15px;padding:10px 14px;cursor:pointer;'+(sel.has(w)?'background:#00D68F;color:#06281d;':'')+'">'+w+'</button>').join(' ');document.querySelectorAll('#cat-words button').forEach(b=>b.onclick=()=>{const w=b.dataset.w;if(sel.has(w))sel.delete(w);else if(sel.size<4)sel.add(w);catRender();});}
+ document.getElementById('cat-check').onclick=()=>{if(sel.size!==4){document.getElementById('cat-msg').textContent='Select exactly 4 words.';return;}const hit=set.cats.find(c=>c.words.every(w=>sel.has(w)));if(hit){foundCats.push(hit);document.getElementById('cat-found').innerHTML+= '<p>Found: <strong>'+hit.name+'</strong> &mdash; '+hit.words.join(', ')+'</p>';words=words.filter(w=>!sel.has(w));sel.clear();if(foundCats.length===4){document.getElementById('cat-msg').textContent='You solved all four categories!';saveScore('category-sort',100);}else document.getElementById('cat-msg').textContent='Correct! '+foundCats.length+' of 4 categories found.';}else{mistakes++;document.getElementById('cat-msg').textContent='Not a group. Mistakes: '+mistakes+' of 4.';if(mistakes>=4)document.getElementById('cat-msg').textContent='Game over. Categories were: '+set.cats.map(c=>c.name+': '+c.words.join(', ')).join(' | ');sel.clear();}catRender();};
+ document.getElementById('cat-clear').onclick=()=>{sel.clear();catRender();};catRender();});</script></head>
+<body><header><nav class="nav"><a class="logo" href="../index.html">Word<span>Solver</span> Hub</a>
+<a class="nlink" href="../word-games.html">Word Games</a><a class="nlink" href="../logic-puzzles.html">Logic Puzzles</a><a class="nlink" href="../number-games.html">Number Games</a><a class="nlink" href="../solvers.html">Solvers</a><a class="nlink" href="../lists/word-lists.html">Word Lists</a><a class="nlink" href="../guides.html">Guides</a><a class="nlink" href="../blog/index.html">Blog</a><a class="nlink" href="../leaderboards.html">Leaderboards</a><a class="nlink" href="../unblocked-games.html">Unblocked</a></nav></header><main><h1>Category Sort Game Daily Free</h1><p>Select four words that belong together, then press Check Group. You have four mistakes.</p><div class='toolbox'><div id="cat-words"></div><p><button class="btn" id="cat-check">Check Group</button> <button class="btn2" id="cat-clear">Clear Selection</button></p><p id="cat-msg" class="small"></p><div id="cat-found"></div></div><section><h2>How to Play</h2><p>Play right in your browser. No sign-in or download is needed. Your best scores are saved only on your own device, on the <a href='../leaderboards.html'>Leaderboards</a> page.</p></section><section><h2>Related Games</h2><p><a href="five-letter-game.html">5-Letter Game</a> &bull; <a href="category-sort.html">Category Sort</a> &bull; <a href="word-search.html">Word Search</a> &bull; <a href="../logic/sudoku.html">Sudoku</a></p></section><section><h2>Frequently Asked Questions</h2><h3>Is this game free?</h3><p>Yes, free with no sign-in and no download.</p><h3>Is the daily puzzle the same for everyone?</h3><p>Yes for daily games: the puzzle is picked from the US Eastern calendar date.</p><h3>Can I play on my phone?</h3><p>Yes. All games are built mobile-first and work with touch or a keyboard.</p></section></main><footer><div class="foot"><div><strong style="color:#fff">WordSolver Hub</strong><p>Free word solvers and daily word, logic, and number games for players in the United States. No sign-in, no download, no paywall.</p></div>
+<div><strong style="color:#fff">Games</strong><a href="../word-games.html">All Word Games</a><a href="../games/five-letter-game.html">5-Letter Word Game</a><a href="../games/category-sort.html">Category Sort Game</a><a href="../games/word-search.html">Word Search</a><a href="../logic/sudoku.html">Sudoku</a><a href="../logic/2048.html">2048</a></div>
+<div><strong style="color:#fff">Solvers</strong><a href="../solvers.html">All Solvers</a><a href="../solvers/word-finder.html">Word Finder</a><a href="../solvers/anagram-solver.html">Anagram Solver</a><a href="../solvers/scrabble-solver.html">Scrabble Solver</a><a href="../solvers/crossword-solver.html">Crossword Solver</a><a href="../solvers/word-search-maker.html">Word Search Maker</a></div>
+<div><strong style="color:#fff">Site</strong><a href="../about.html">About</a><a href="../contact.html">Contact</a><a href="../privacy.html">Privacy Policy</a><a href="../terms.html">Terms</a><a href="../lists/word-lists.html">Word Lists</a><a href="../leaderboards.html">Leaderboards</a></div></div>
+<div style="text-align:center;padding:0 16px 20px;color:#A8B0B5;font-size:13px">WordSolver Hub is an original site. Game names on this site are generic descriptions, not trademarks of any publisher.</div></footer>
+<script src="../assets/words.js"></script><script src="../assets/tools.js"></script><script src="../assets/games.js"></script></body></html>
