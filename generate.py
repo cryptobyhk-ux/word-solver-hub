@@ -2,7 +2,7 @@
 """Generate WordSolver Hub: original static site. No copied content."""
 import os, re, json, html
 ROOT = os.path.dirname(os.path.abspath(__file__))
-BASE = "https://word-solver-hub.vercel.app"
+BASE = "https://word-solver-hub-ten.vercel.app"
 SITE = "WordSolver Hub"
 
 # --- load word lists from assets/words.js (same source the browser uses) ---

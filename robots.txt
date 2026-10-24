@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://word-solver-hub.vercel.app/sitemap.xml
+Sitemap: https://word-solver-hub-ten.vercel.app/sitemap.xml
